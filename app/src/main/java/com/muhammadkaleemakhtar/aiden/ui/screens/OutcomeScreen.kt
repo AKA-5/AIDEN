@@ -26,6 +26,9 @@ import com.muhammadkaleemakhtar.aiden.ui.components.AgentLogViewer
 import com.muhammadkaleemakhtar.aiden.ui.components.MetricCard
 import com.muhammadkaleemakhtar.aiden.ui.viewmodel.AidenViewModel
 import com.muhammadkaleemakhtar.aiden.utils.FileExporter
+import com.muhammadkaleemakhtar.aiden.utils.ReportSharer
+import com.muhammadkaleemakhtar.aiden.utils.DiagnosticTest
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -41,6 +44,11 @@ fun OutcomeScreen(
     var selectedTab by remember { mutableStateOf(0) } // 0 = Before, 1 = After
     val verticalScrollState = rememberScrollState()
     val horizontalScrollState = rememberScrollState()
+
+    val coroutineScope = rememberCoroutineScope()
+    var showDiagnosticDialog by remember { mutableStateOf(false) }
+    var diagnosticResultText by remember { mutableStateOf("") }
+    var isRunningDiagnostic by remember { mutableStateOf(false) }
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
@@ -232,6 +240,40 @@ fun OutcomeScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
+            Button(
+                onClick = {
+                    isRunningDiagnostic = true
+                    coroutineScope.launch {
+                        val result = DiagnosticTest.runAllTests(context)
+                        diagnosticResultText = result
+                        isRunningDiagnostic = false
+                        showDiagnosticDialog = true
+                    }
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.tertiary,
+                    contentColor = MaterialTheme.colorScheme.onTertiary
+                ),
+                shape = RoundedCornerShape(8.dp),
+                enabled = !isRunningDiagnostic
+            ) {
+                if (isRunningDiagnostic) {
+                    CircularProgressIndicator(
+                        color = MaterialTheme.colorScheme.onTertiary,
+                        modifier = Modifier.size(24.dp)
+                    )
+                } else {
+                    Icon(Icons.Outlined.CheckCircle, contentDescription = null)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text("Run Diagnostic Test", fontWeight = FontWeight.Bold)
+                }
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
             // Action Buttons
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -239,7 +281,7 @@ fun OutcomeScreen(
             ) {
                 Button(
                     onClick = {
-                        Toast.makeText(context, "Report shared successfully!", Toast.LENGTH_SHORT).show()
+                        ReportSharer.shareReport(context)
                     },
                     modifier = Modifier
                         .weight(1f)
@@ -275,5 +317,26 @@ fun OutcomeScreen(
                 }
             }
         }
+    }
+
+    if (showDiagnosticDialog) {
+        AlertDialog(
+            onDismissRequest = { showDiagnosticDialog = false },
+            title = { Text("Diagnostic Results", style = MaterialTheme.typography.titleLarge) },
+            text = {
+                Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+                    Text(
+                        text = diagnosticResultText,
+                        style = MaterialTheme.typography.bodySmall,
+                        fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                    )
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = { showDiagnosticDialog = false }) {
+                    Text("Dismiss")
+                }
+            }
+        )
     }
 }
