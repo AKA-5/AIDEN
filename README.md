@@ -14,9 +14,8 @@ Developed for the **Google Antigravity Hackathon 2026 - Challenge 3: Crisis Inte
 
 As per the hackathon submission guidelines, all required deliverables are included and linked below:
 
-*   **Demo Video**: 🎥 [Watch the 3-minute Walkthrough & Simulation Video](https://your-video-link-here) *(Please replace this placeholder with your actual recording link)*
-*   **Android APK**: 📱 [Download the pre-compiled debug APK](./apk/AIDEN.apk) (runs on API 26+)
-*   **Screenshots**: 📸 [View application screenshots](./screenshots)
+*   **Demo Video**: 🎥 [Watch the 3-minute Walkthrough & Simulation Video](https://drive.google.com/file/d/1eIF-nR3RaRxnbYQ7pRTPbs0E2ip82a2I/view?usp=sharing)
+*   **Android APK**: 📱 [Download the pre-compiled debug APK](https://drive.google.com/file/d/1TchUT7f-Ru3MxO9-BSCN58N4VAxRWajF/view?usp=sharing) (runs on API 26+)
 *   **Master Requirements Plan**: 📋 [MASTER_PLAN.md](./MASTER_PLAN.md)
 *   **Setup Instructions**: 🛠️ [SETUP_GUIDE.md](./docs/SETUP_GUIDE.md)
 *   **Architecture & API Docs**: 📖 [API_REFERENCE.md](./docs/API_REFERENCE.md)
