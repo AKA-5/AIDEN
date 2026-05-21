@@ -10,7 +10,7 @@ Developed for the **Google Antigravity Hackathon 2026 - Challenge 3: Crisis Inte
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 *   **Multi-Lingual NLP Analysis**: Seamlessly handles Roman Urdu (e.g., *"G-10 mein pani bhar gaya hai"*) and English inputs.
 *   **Three-Agent Pipeline**:
@@ -24,7 +24,7 @@ Developed for the **Google Antigravity Hackathon 2026 - Challenge 3: Crisis Inte
 
 ---
 
-## 🛠️ Architecture & Flow
+## Architecture & Flow
 
 ```mermaid
 graph TD
@@ -41,7 +41,7 @@ graph TD
 
 ---
 
-## 🎨 Design System
+## Design System
 
 AIDEN adheres strictly to Compose Material 3 UI specifications. It utilizes a custom warm aesthetic styled around terracotta, sand, and earthy tones with **no blue or neon colors**:
 
@@ -54,7 +54,7 @@ AIDEN adheres strictly to Compose Material 3 UI specifications. It utilizes a cu
 
 ---
 
-## 📦 Project Directory Structure
+## Project Directory Structure
 
 ```text
 AIDEN/
@@ -86,7 +86,7 @@ AIDEN/
 
 ---
 
-## ⚙️ Setup and Installation
+## Setup and Installation
 
 Refer to the complete [SETUP_GUIDE.md](file:///d:/CodeProjects/AndroidProjects/AIDEN/docs/SETUP_GUIDE.md) for details.
 
@@ -106,7 +106,7 @@ $env:JAVA_HOME="C:\Program Files\Android\Android Studio\jbr"
 
 ---
 
-## 🧪 How to Run Verification
+## How to Run Verification
 
 1.  Connect your phone or run an Emulator.
 2.  In Android Studio, click **Run** (`Shift+F10`).
