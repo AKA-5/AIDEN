@@ -10,6 +10,20 @@ Developed for the **Google Antigravity Hackathon 2026 - Challenge 3: Crisis Inte
 
 ---
 
+## 🚀 Submission Deliverables
+
+As per the hackathon submission guidelines, all required deliverables are included and linked below:
+
+*   **Demo Video**: 🎥 [Watch the 3-minute Walkthrough & Simulation Video](https://your-video-link-here) *(Please replace this placeholder with your actual recording link)*
+*   **Android APK**: 📱 [Download the pre-compiled debug APK](./apk/AIDEN.apk) (runs on API 26+)
+*   **Screenshots**: 📸 [View application screenshots](./screenshots)
+*   **Master Requirements Plan**: 📋 [MASTER_PLAN.md](./MASTER_PLAN.md)
+*   **Setup Instructions**: 🛠️ [SETUP_GUIDE.md](./docs/SETUP_GUIDE.md)
+*   **Architecture & API Docs**: 📖 [API_REFERENCE.md](./docs/API_REFERENCE.md)
+
+---
+
+
 ## Key Features
 
 *   **Multi-Lingual NLP Analysis**: Seamlessly handles Roman Urdu (e.g., *"G-10 mein pani bhar gaya hai"*) and English inputs.
